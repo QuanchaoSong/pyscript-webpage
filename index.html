@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <title>Pyscript Test</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.2.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.2.min.js"></script>
+  <style>
+    py-script {
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
+      text-align: center;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Enter URL:</h3>
+  <input type="text" id="data_url" name="data_url" required size="100" value=""
+    placeholder="Input the url link of your particle csv file"></input>
+  <br /><br />
+  <div>
+    <button type="button" id="draw_button_url" py-onClick="drawGraphOfUrl()">Draw Graph From URL</button>
+  </div>
+  <h3>Or choose a local file:</h3>
+  <input type="file" id="data_local_file" name="data_local_file" required size="5" accept=".csv">
+  <br /><br />
+  <div>
+    <button type="button" id="draw_button_local_file" py-onClick="drawGraphOfLocalFile()">Draw Graph From Local</button>
+  </div>
+  <div>
+    <h4>Graph:</h4>
+    <div id="graph-area"></div>
+  </div>
+  <py-config>
+    packages = ["numpy", "bokeh"]
+  </py-config>
+  <py-script src="./csv_operation.py"></py-script>
+</body>
+
+</html>
